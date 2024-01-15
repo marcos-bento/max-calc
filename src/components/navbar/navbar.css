@@ -1,0 +1,35 @@
+@import "../../styles/style.css";
+
+.navbar{
+    background-image: linear-gradient(var(--primary-color), var(--secondary-color));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: center;
+    padding: 1rem 15%;
+}
+
+.navbar__title{
+    color: var(--third-color);
+    font-size: 2em;
+
+}
+
+.navbar__links{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.navbar__links li {
+    color: white;
+    text-decoration: none;
+    align-self: center
+}
+
+.navbar__links li:hover{
+    color:var(--third-color);
+    cursor: pointer;
+}
