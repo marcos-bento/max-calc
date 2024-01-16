@@ -1,0 +1,57 @@
+@import "../../styles/style.css";
+
+.conteudo{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudo__lateral{
+    background-color: var(--third-color);
+    min-height: 100vh;
+    width: 15%;
+    padding: 1rem;
+    border-right: solid 1px grey;
+}
+
+.conteudo__lateral h2{
+    font-size: 18px;
+    padding-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.conteudo__lateral__links{
+    font-size: 20px;
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.conteudo__lateral__links li {
+    text-decoration: none;
+    align-self: center
+}
+
+.conteudo__lateral__links li:hover{
+    color:var(--secondary-color);
+    border-bottom: solid 1px var(--secondary-color);
+    cursor: pointer;
+}
+
+.conteudo__artigo{
+    width: 85%;
+}
+
+.conteudo__artigo__titulo{
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 2rem;
+}
+
+.conteudo__artigo__texto{
+    padding: 1rem;
+    text-align: center;
+}
