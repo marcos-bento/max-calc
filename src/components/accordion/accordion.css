@@ -1,0 +1,27 @@
+@import '../../styles/style.css';
+
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-image: linear-gradient(var(--primary-color), var(--secondary-color));
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: var(--third-color);
+}
+
+.accordion-button:hover {
+    background-image: linear-gradient(var(--secondary-color),var(--primary-color));
+}
+
+.accordion-content {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}

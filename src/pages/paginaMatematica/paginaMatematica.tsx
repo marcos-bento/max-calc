@@ -1,8 +1,9 @@
-import Navbar from "../../components/navbar/navbar.tsx";
+import Navbar from "../../components/navbar/navbar";
 import "../../styles/style.css";
 import React, { useState } from "react";
 import './paginaMatematica.css';
-import RegraDe3 from "../conteudoMatematica/regraDe3.tsx";
+import RegraDe3 from "../conteudoMatematica/regraDe3";
+import RegraDe3Composta from "../conteudoMatematica/regraDe3Composta";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -12,8 +13,17 @@ export default function PaginaMatematica() {
     case 1:
       componente = <RegraDe3/>;
     break;
+    case 1.1:
+      componente = <RegraDe3Composta/>;
+    break;
     case 2:
       componente = <p>Números Inteiros</p>;
+    break;
+    case 2.1:
+      componente = <p>Mínimo Múltiplo Comúm (MMC)</p>;
+    break;
+    case 2.2:
+      componente = <p>Mínimo Divisor Comúm (MDC)</p>;
     break;
     case 3:
       componente = <p>Números Racionais</p>;
@@ -55,7 +65,10 @@ export default function PaginaMatematica() {
           <h2>Veja também:</h2>
           <ul className="conteudo__lateral__links">
             <li onClick={() => setConteudo(1)}>Regra de 3</li>
+            <li onClick={() => setConteudo(1.1)}>Regra de 3 Composta</li>
             <li onClick={() => setConteudo(2)}>Números inteiros</li>
+            <li onClick={() => setConteudo(2.1)}>MMC - Múltiplo comum</li>
+            <li onClick={() => setConteudo(2.2)}>MDC - Divisor comum</li>
             <li onClick={() => setConteudo(3)}>Números Racionais</li>
             <li onClick={() => setConteudo(4)}>Divisão Proporcional</li>
             <li onClick={() => setConteudo(5)}>Porcentagem</li>

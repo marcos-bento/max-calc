@@ -20,6 +20,12 @@
     padding-top: 1rem;
 }
 
+.conteudo__svgcontainer{
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: -60px;
+}
+
 .conteudo__calculadora{
     display: flex;
     align-items: center;
@@ -55,4 +61,15 @@
     font-size: 20px;
     text-align: center;
     margin: 1rem 10%;
+    padding: 1rem 0;
+}
+
+.conteudo__material__titulo{
+    font-size: 28px;
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+.conteudo__material__perguntas{
+    padding: 1rem;
 }
