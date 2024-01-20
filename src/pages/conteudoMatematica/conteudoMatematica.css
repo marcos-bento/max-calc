@@ -11,6 +11,7 @@
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+    padding: 1rem;
 }
 
 .conteudo__opcoes{
@@ -64,6 +65,10 @@
     padding: 1rem 0;
 }
 
+.conteudo__material p{
+    padding: 1rem 0;
+}
+
 .conteudo__material__titulo{
     font-size: 28px;
     font-weight: bold;
@@ -72,4 +77,23 @@
 
 .conteudo__material__perguntas{
     padding: 1rem;
+}
+
+.conteudo__material__anchorList{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    color: grey;
+    padding-bottom: 1rem;
+}
+
+.conteudo__material__anchorList-link a{
+    text-decoration: none;
+    color: grey;
+}
+
+.conteudo__material__anchorList-link a:hover{
+    
+    color: var(--third-color);
+    cursor: pointer;
 }
