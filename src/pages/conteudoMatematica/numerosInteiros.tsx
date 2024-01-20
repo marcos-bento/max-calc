@@ -65,6 +65,16 @@ export default function NumerosInteiros(){
             <p>→ O número 49 é múltiplo de 7, pois existe número inteiro que, multiplicado por 7, resulta em 49. 49 = 7 . <span style={{ fontWeight: "bold" }}>7</span></p>
             <p>→ O número 324 é múltiplo de 3, pois existe número inteiro que, multiplicado por 3, resulta em 324. 324 = 3 . <span style={{ fontWeight: "bold" }}>108</span></p>
             <p>→ O número 523 <span style={{ fontWeight: "bold" }}>não é</span> múltiplo de 2, pois não existe número inteiro que, multiplicado por 2, resulte em 523. 523 = 2 . <span style={{ fontWeight: "bold" }}>?</span></p>
+            <p>Para finalizar é importante salientar a existência dos números primos! Estes são números divisíveis apenas por 1 e por ele mesmo. Ex:</p>
+            <ul>
+                <li>2 é divisível por 2 e por 1 então ele <span style={{ fontWeight: "bold" }}>é primo</span>.</li>
+                <li>3 é divisível por 3 e por 1 então ele <span style={{ fontWeight: "bold" }}>é primo</span>.</li>
+                <li>4 é divisível por 4, por 2 e por 1 então ele <span style={{ fontWeight: "bold" }}>não é primo</span>.</li>
+                <li>5 é divisível por 5 e por 1 então ele <span style={{ fontWeight: "bold" }}>é primo</span>.</li>
+                <li>6 é divisível por 6, por 3, por 2 e por 1 então ele <span style={{ fontWeight: "bold" }}>não é primo</span>.</li>
+            </ul>
+            <p>Os números primos são utilizados para calculos como o MMC que você pode acompanhar ao lado. Para facilitar de 2 até 100 os números primos são os circulados abaixo:</p>
+            <img src="https://br.neurochispas.com/wp-content/uploads/2021/05/tabela-de-numeros-primos-ate-100.jpg" alt="Tabela de números primos"/>
         </div>
     </>
     )

@@ -72,7 +72,7 @@ export default function RegraDe3() {
                 </div>
                 <div>
                     <label htmlFor="entrada-b" >Inversamente proporcional:</label>
-                    <input type="radio" id="entrada-b" checked={tipoDeEntrada === "B"} name="regraDe3" onClick={() => setTipoDeEntrada("B")} />
+                    <input type="radio" id="entrada-b" checked={tipoDeEntrada === "B"} name="regraDe3" onChange={() => setTipoDeEntrada("B")} />
                 </div>
             </div>
             <div className="conteudo__calculadora">

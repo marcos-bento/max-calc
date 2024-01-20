@@ -97,3 +97,9 @@
     color: var(--third-color);
     cursor: pointer;
 }
+
+.conteudo__alertaCinza{
+    text-align: center;
+    font-size: 14px;
+    color: grey;
+}

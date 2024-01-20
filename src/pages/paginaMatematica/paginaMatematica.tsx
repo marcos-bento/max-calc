@@ -5,6 +5,7 @@ import './paginaMatematica.css';
 import RegraDe3 from "../conteudoMatematica/regraDe3";
 import RegraDe3Composta from "../conteudoMatematica/regraDe3Composta";
 import NumerosInteiros from "../conteudoMatematica/numerosInteiros";
+import MMC from "../conteudoMatematica/mmc";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -18,10 +19,10 @@ export default function PaginaMatematica() {
       componente = <RegraDe3Composta/>;
     break;
     case 2:
-      componente = <p><NumerosInteiros/></p>;
+      componente = <NumerosInteiros/>;
     break;
     case 2.1:
-      componente = <p>Mínimo Múltiplo Comúm (MMC)</p>;
+      componente = <MMC/>;
     break;
     case 2.2:
       componente = <p>Mínimo Divisor Comúm (MDC)</p>;
@@ -67,9 +68,9 @@ export default function PaginaMatematica() {
           <ul className="conteudo__lateral__links">
             <li onClick={() => setConteudo(1)}>Regra de 3</li>
             <li onClick={() => setConteudo(1.1)}>Regra de 3 Composta</li>
-            <li onClick={() => setConteudo(2)}>Números inteiros</li>
             <li onClick={() => setConteudo(2.1)}>MMC: Múltiplo comum</li>
             <li onClick={() => setConteudo(2.2)}>MDC: Divisor comum</li>
+            <li onClick={() => setConteudo(2)}>Números inteiros</li>
             <li onClick={() => setConteudo(3)}>Números Racionais</li>
             <li onClick={() => setConteudo(4)}>Divisão Proporcional</li>
             <li onClick={() => setConteudo(5)}>Porcentagem</li>

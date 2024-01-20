@@ -1,0 +1,19 @@
+@import '../../styles/style.css';
+
+.botao{
+    display: block;
+    margin: 1.5rem auto;
+    height: 2.5rem;
+    width: 8rem;
+    background-image: linear-gradient(var(--primary-color), var(--secondary-color),var(--primary-color));
+    /* border-radius: 20px; */
+    color: var(--third-color);
+    border:none;
+    font-size: 18px;
+}
+
+.botao:hover{
+    background-image: linear-gradient(var(--fiveth-color), var(--fourth-color),var(--fiveth-color));
+    color: var(--primary-color);
+    cursor: pointer;
+}
