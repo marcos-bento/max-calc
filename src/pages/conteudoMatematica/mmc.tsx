@@ -40,9 +40,12 @@ export default function MMC() {
             let numPrimos = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173]
             let a = valorA;
             let b = valorB;
-            let c = valorC || 0;
+            let c: number|undefined = valorC || 0;
             let d = valorD || 0;
             let e = valorE || 0;
+            if (c < 1){
+                c = undefined;
+            }
 
             const ehDivisivel = (valor: number, dividendo: number) => valor % dividendo === 0;
 
@@ -63,7 +66,7 @@ export default function MMC() {
             let iterator = 0;
             let resposta = 1;
             let tabelaFatoracao: React.ReactNode;
-            while (a > 1 || b > 1 || c > 1 || d > 1 || e > 1) {
+            while (a > 1 || b > 1 || (c!== undefined && c > 1) || d > 1 || e > 1) {
                 let validaA = ehDivisivel(a, numPrimos[iterator]);
                 let validaB = ehDivisivel(b, numPrimos[iterator]);
                 let validaC, validaD, validaE = false;
@@ -73,7 +76,7 @@ export default function MMC() {
                 if (validaA || validaB || validaC || validaD || validaE) {
                     if (validaA) { a = a / numPrimos[iterator] };
                     if (validaB) { b = b / numPrimos[iterator] };
-                    if (validaC) { c = c / numPrimos[iterator] };
+                    if (validaC && c!== undefined) { c = c / numPrimos[iterator] };
                     if (validaD) { d = d / numPrimos[iterator] };
                     if (validaE) { e = e / numPrimos[iterator] };
                     calculo = <>
@@ -130,9 +133,11 @@ export default function MMC() {
     };
 
     const handleValueChange = (event: ChangeEvent<HTMLInputElement>, { setValue }: InputProps) => {
-        let inputValue: number;
+        let inputValue: number | undefined;
         if (Number(event.target.value) < 0) {
             inputValue = Number(event.target.value) * -1;
+        } else if (Number(event.target.value) === 0){
+            inputValue = undefined;
         } else {
             inputValue = Number(event.target.value);
         }
