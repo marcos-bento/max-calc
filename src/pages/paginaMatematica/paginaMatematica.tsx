@@ -6,6 +6,7 @@ import RegraDe3 from "../conteudoMatematica/regraDe3";
 import RegraDe3Composta from "../conteudoMatematica/regraDe3Composta";
 import NumerosInteiros from "../conteudoMatematica/numerosInteiros";
 import MMC from "../conteudoMatematica/mmc";
+import MDC from "../conteudoMatematica/mdc";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -25,7 +26,7 @@ export default function PaginaMatematica() {
       componente = <MMC/>;
     break;
     case 2.2:
-      componente = <p>Mínimo Divisor Comúm (MDC)</p>;
+      componente = <MDC/>;
     break;
     case 3:
       componente = <p>Números Racionais</p>;

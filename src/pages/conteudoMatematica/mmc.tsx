@@ -41,11 +41,11 @@ export default function MMC() {
             let a = valorA;
             let b = valorB;
             let c: number|undefined = valorC || 0;
-            let d = valorD || 0;
-            let e = valorE || 0;
-            if (c < 1){
-                c = undefined;
-            }
+            let d: number|undefined = valorD || 0;
+            let e: number|undefined = valorE || 0;
+            if (c < 1){c = undefined}
+            if (d < 1){d = undefined}
+            if (e < 1){e = undefined}
 
             const ehDivisivel = (valor: number, dividendo: number) => valor % dividendo === 0;
 
@@ -66,7 +66,7 @@ export default function MMC() {
             let iterator = 0;
             let resposta = 1;
             let tabelaFatoracao: React.ReactNode;
-            while (a > 1 || b > 1 || (c!== undefined && c > 1) || d > 1 || e > 1) {
+            while (a > 1 || b > 1 || (c && c > 1) || (d && d > 1) || (e && e > 1)) {
                 let validaA = ehDivisivel(a, numPrimos[iterator]);
                 let validaB = ehDivisivel(b, numPrimos[iterator]);
                 let validaC, validaD, validaE = false;
@@ -77,8 +77,8 @@ export default function MMC() {
                     if (validaA) { a = a / numPrimos[iterator] };
                     if (validaB) { b = b / numPrimos[iterator] };
                     if (validaC && c!== undefined) { c = c / numPrimos[iterator] };
-                    if (validaD) { d = d / numPrimos[iterator] };
-                    if (validaE) { e = e / numPrimos[iterator] };
+                    if (validaD && d!== undefined) { d = d / numPrimos[iterator] };
+                    if (validaE && e!== undefined) { e = e / numPrimos[iterator] };
                     calculo = <>
                         {calculo}
                         <table className="conteudo__tabela">
