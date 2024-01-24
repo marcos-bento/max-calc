@@ -119,11 +119,11 @@ export default function RegraDe3() {
                 <p><span style={{ fontWeight: "bold" }}>1)</span> Durante o ano de 2020, devido à pandemia de COVID-19, o mundo viu-se dependente da criação de uma vacina para imunizar a população. No Brasil não foi diferente, e a corrida por uma vacina eficaz só terminou no ano de 2021. A primeira delas foi a Coronavac, produzida pelo Instituto Butantan, que anunciou que a vacina possui 78% de eficácia em casos leves. Isso significa que, se 100 pessoas forem vacinadas, 78 pessoas não terão sintoma algum e 22 pessoas terão sintomas leves.
                     <br></br><br></br> A partir desse anúncio, iniciou-se a campanha de imunização. Supondo-se que a cidade de Abadia de Goiás (próxima da capital Goiânia) tenha conseguido vacinar toda a sua população, que é de 8.950 habitantes, e considerando-se que toda ela tenha contato com o vírus e que essa proporção seja mantida, a quantidade de pessoas que terão sintomas leves nessa população será de:</p>
                 <ul className="conteudo__material__perguntas">
-                    <li><p><span style={{ fontWeight: "bold" }}>A)</span> 6979</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>B)</span> 6780</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>C)</span> 2170</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>D)</span> 1969</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>E)</span> 1852</p></li>
+                    <li><span style={{ fontWeight: "bold" }}>A)</span> 6979</li>
+                    <li><span style={{ fontWeight: "bold" }}>B)</span> 6780</li>
+                    <li><span style={{ fontWeight: "bold" }}>C)</span> 2170</li>
+                    <li><span style={{ fontWeight: "bold" }}>D)</span> 1969</li>
+                    <li><span style={{ fontWeight: "bold" }}>E)</span> 1852</li>
                 </ul>
                 <Accordion
                     title="Ver resposta da pergunta 1"
@@ -135,11 +135,11 @@ export default function RegraDe3() {
                 <p><span style={{ fontWeight: "bold" }}>2)</span> A água é um dos recursos mais importantes para a manutenção da vida. Infelizmente, ela nem sempre é bem cuidada, o que tem gerado grandes contaminações de água potável em nossa sociedade. Um dos meios de contaminação é o descarte incorreto de óleo de cozinha, em que 1 litro de óleo contamina 25 mil litros de água que poderia ser potável.
                     <br></br><br></br> Preocupado com essa situação, o síndico de um condomínio resolveu colocar na área comum um tanque para descarte correto desse  óleo. Ao final do mês, ele coletou um total de 135,6 litros. Caso esse volume de óleo fosse jogado fora de maneira incorreta, o volume de água contaminada seria de:</p>
                 <ul className="conteudo__material__perguntas">
-                    <li><p><span style={{ fontWeight: "bold" }}>A)</span> 3 milhões de litros</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>B)</span> 3,2 milhões de litros</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>C)</span> 3,4 milhões de litros</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>D)</span> 3,5 milhões de litros</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>E)</span> 4 milhões de litros</p></li>
+                    <li><span style={{ fontWeight: "bold" }}>A)</span> 3 milhões de litros</li>
+                    <li><span style={{ fontWeight: "bold" }}>B)</span> 3,2 milhões de litros</li>
+                    <li><span style={{ fontWeight: "bold" }}>C)</span> 3,4 milhões de litros</li>
+                    <li><span style={{ fontWeight: "bold" }}>D)</span> 3,5 milhões de litros</li>
+                    <li><span style={{ fontWeight: "bold" }}>E)</span> 4 milhões de litros</li>
                 </ul>
                 <Accordion
                     title="Ver resposta da pergunta 2"
@@ -149,11 +149,11 @@ export default function RegraDe3() {
                 {/* Exercício 3 */}
                 <p><span style={{ fontWeight: "bold" }}>3)</span> Para atender a alta demanda em smartphones, uma fábrica decidiu aumentar o número de produtos produzidos diariamente. Para isso, ela investiu em mais 3 máquinas, totalizando-se 8 máquinas. Sabendo-se que eram produzidos diariamente 750 smartphones, haverá um aumento na produção diária de:</p>
                 <ul className="conteudo__material__perguntas">
-                    <li><p><span style={{ fontWeight: "bold" }}>A)</span> 1200</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>B)</span> 1000</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>C)</span> 210</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>D)</span> 350</p></li>
-                    <li><p><span style={{ fontWeight: "bold" }}>E)</span> 450</p></li>
+                    <li><span style={{ fontWeight: "bold" }}>A)</span> 1200</li>
+                    <li><span style={{ fontWeight: "bold" }}>B)</span> 1000</li>
+                    <li><span style={{ fontWeight: "bold" }}>C)</span> 210</li>
+                    <li><span style={{ fontWeight: "bold" }}>D)</span> 350</li>
+                    <li><span style={{ fontWeight: "bold" }}>E)</span> 450</li>
                 </ul>
                 <Accordion
                     title="Ver resposta da pergunta 3"

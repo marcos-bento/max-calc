@@ -93,7 +93,6 @@
 }
 
 .conteudo__material__anchorList-link a:hover{
-    
     color: var(--third-color);
     cursor: pointer;
 }
@@ -102,4 +101,18 @@
     text-align: center;
     font-size: 14px;
     color: grey;
+}
+
+.conteudo__container__tabela{
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo__tabela{
+    margin: auto;
+}
+
+.conteudo__tabela_celula{
+    min-width: 25px;
+    max-width: 25px;
 }
