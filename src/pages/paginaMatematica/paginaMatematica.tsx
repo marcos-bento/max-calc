@@ -7,6 +7,7 @@ import RegraDe3Composta from "../conteudoMatematica/regraDe3Composta";
 import NumerosInteiros from "../conteudoMatematica/numerosInteiros";
 import MMC from "../conteudoMatematica/mmc";
 import MDC from "../conteudoMatematica/mdc";
+import NumerosRacionais from "../conteudoMatematica/numerosRacionais";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -29,7 +30,7 @@ export default function PaginaMatematica() {
       componente = <MDC/>;
     break;
     case 3:
-      componente = <p>Números Racionais</p>;
+      componente = <NumerosRacionais/>;
     break;
     case 4:
       componente = <p>Divisão Proporcional</p>;
@@ -56,6 +57,8 @@ export default function PaginaMatematica() {
       componente = <>
       <h1 className="conteudo__artigo__titulo">Material de estudo de Matemática!</h1>
       <p className="conteudo__artigo__texto">Todo conteúdo apresentado nesse website tem como intuíto fomentar a educação e o aprendizado, seja ele guiado ou solo.</p>
+      <div className="conteudo__artigo__texto"><img src="https://files.passeidireto.com/d672f411-ac0d-4301-8be1-665c7734ef44/d672f411-ac0d-4301-8be1-665c7734ef44.jpeg" alt="Símbolos variádos matemáticos"/></div>
+      <p className="conteudo__artigo__texto">símbolos retirados do site Gran Cursos Online</p>
       </>;
     break;
   }
