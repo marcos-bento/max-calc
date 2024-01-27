@@ -21,6 +21,13 @@
     font-weight: bold;
 }
 
+.conteudo__lateral__links_titulo{
+    color: black;
+    font-weight: bold;
+}
+
+
+
 .conteudo__lateral__links{
     font-size: 20px;
     color: var(--primary-color);
@@ -29,15 +36,24 @@
     gap: 0.5rem;
 }
 
-.conteudo__lateral__links li {
+.conteudo__lateral__links_link {
     text-decoration: none;
     align-self: center
 }
 
-.conteudo__lateral__links li:hover{
+.conteudo__lateral__links_link:hover{
     color:var(--secondary-color);
     border-bottom: solid 1px var(--secondary-color);
     cursor: pointer;
+}
+
+.conteudo__lateral__links_titulo{
+    padding: 0.5rem 0;
+}
+
+.conteudo__lateral__links_titulo:hover{
+    cursor: crosshair!;
+    text-decoration: none!;
 }
 
 .conteudo__artigo{

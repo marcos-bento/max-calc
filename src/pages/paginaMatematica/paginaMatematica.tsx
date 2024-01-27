@@ -8,6 +8,7 @@ import NumerosInteiros from "../conteudoMatematica/numerosInteiros";
 import MMC from "../conteudoMatematica/mmc";
 import MDC from "../conteudoMatematica/mdc";
 import NumerosRacionais from "../conteudoMatematica/numerosRacionais";
+import Fracoes from "../conteudoMatematica/fracoes";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -31,6 +32,9 @@ export default function PaginaMatematica() {
     break;
     case 3:
       componente = <NumerosRacionais/>;
+    break;
+    case 3.1:
+      componente = <Fracoes/>;
     break;
     case 4:
       componente = <p>Divisão Proporcional</p>;
@@ -68,24 +72,25 @@ export default function PaginaMatematica() {
       <Navbar/>
       <div className="conteudo">
         <aside className="conteudo__lateral">
-          <h2>Veja também:</h2>
           <ul className="conteudo__lateral__links">
-            <li onClick={() => setConteudo(1)}>Regra de 3</li>
-            <li onClick={() => setConteudo(1.1)}>Regra de 3 Composta</li>
-            <li onClick={() => setConteudo(2.1)}>MMC: Múltiplo comum</li>
-            <li onClick={() => setConteudo(2.2)}>MDC: Divisor comum</li>
-            <li onClick={() => setConteudo(2)}>Números inteiros</li>
-            <li onClick={() => setConteudo(3)}>Números Racionais</li>
-            <li onClick={() => setConteudo(4)}>Divisão Proporcional</li>
-            <li onClick={() => setConteudo(5)}>Porcentagem</li>
-            <li onClick={() => setConteudo(6)}>Juros simples</li>
-            <li onClick={() => setConteudo(7)}>Juros compostos</li>
-            <li onClick={() => setConteudo(8)}>Cálculo de Área</li>
-            <li onClick={() => setConteudo(9)}>Cálculo de Volume</li>
-            <li onClick={() => setConteudo(10)}>Raciocínio Sequencial</li>
+            <li className="conteudo__lateral__links_titulo">calculadoras:</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1)}>Regra de 3</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1.1)}>Regra de 3 Composta</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.1)}>MMC: Múltiplo comum</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.2)}>MDC: Divisor comum</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3.1)}>Frações</li>
+            <li className="conteudo__lateral__links_titulo">Conceitos:</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2)}>Números inteiros</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3)}>Números Racionais</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(4)}>Divisão Proporcional</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(5)}>Porcentagem</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(6)}>Juros simples</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(7)}>Juros compostos</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(8)}>Cálculo de Área</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(9)}>Cálculo de Volume</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(10)}>Raciocínio Sequencial</li>
           </ul>
         </aside>
-
         <article className="conteudo__artigo">
           {componente}
         </article>

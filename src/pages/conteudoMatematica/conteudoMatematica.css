@@ -120,3 +120,29 @@
 .conteudo__tabela_celula-vermelho{
     color: red;
 }
+
+.conteudo__calculadora__fracao{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.conteudo__calculadora__fracao-traco{
+    width: 100%;
+}
+
+.conteudo__calculadora__fracao-explicacaoSuperior{
+    margin-left: -80px;
+    margin-bottom: -77px;
+    transform: rotate(-25deg);
+    font-size: 18px;
+    color: red;
+}
+
+.conteudo__calculadora__fracao-explicacaoInferior{
+    margin-left: -80px;
+    margin-top: +25px;
+    transform: rotate(-25deg);
+    font-size: 18px;
+    color: red;
+}
