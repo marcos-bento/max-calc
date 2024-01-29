@@ -6,7 +6,7 @@ import Accordion from "../../components/accordion/accordion";
 interface InputProps {
     value?: number | undefined;
     setValue: React.Dispatch<React.SetStateAction<number | undefined>>;
-}
+};
 
 export default function MMC() {
     const [valorA, setValorA] = useState<number>();

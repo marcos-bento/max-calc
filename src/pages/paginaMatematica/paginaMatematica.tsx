@@ -74,7 +74,7 @@ export default function PaginaMatematica() {
         <aside className="conteudo__lateral">
           <ul className="conteudo__lateral__links">
             <li className="conteudo__lateral__links_titulo">calculadoras:</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1)}>Regra de 3</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1)}>Regra de 3 Simples</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1.1)}>Regra de 3 Composta</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.1)}>MMC: Múltiplo comum</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.2)}>MDC: Divisor comum</li>
