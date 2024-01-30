@@ -241,6 +241,7 @@ export default function Fracoes() {
             {resolucao}
             <br></br>
             <hr></hr>
+            {/* Material explicativo */}
             <div className="conteudo__material">
                 <p className="conteudo__material__titulo">Sobre</p>
                 <p>Na matemática, as frações correspondem a uma representação das partes de um todo. Ela determina a divisão de partes iguais sendo que cada parte é uma fração do inteiro.</p>

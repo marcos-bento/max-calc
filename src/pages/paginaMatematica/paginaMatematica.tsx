@@ -9,6 +9,7 @@ import MMC from "../conteudoMatematica/mmc";
 import MDC from "../conteudoMatematica/mdc";
 import NumerosRacionais from "../conteudoMatematica/numerosRacionais";
 import Fracoes from "../conteudoMatematica/fracoes";
+import DivisaoProporcional from "../conteudoMatematica/divisaoProporcional";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -37,7 +38,7 @@ export default function PaginaMatematica() {
       componente = <Fracoes/>;
     break;
     case 4:
-      componente = <p>Divisão Proporcional</p>;
+      componente = <DivisaoProporcional/>;
     break;
     case 5:
       componente = <p>Porcentagem</p>;
@@ -79,10 +80,10 @@ export default function PaginaMatematica() {
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.1)}>MMC: Múltiplo comum</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.2)}>MDC: Divisor comum</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3.1)}>Frações</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(4)}>Divisão Proporcional</li>
             <li className="conteudo__lateral__links_titulo">Conceitos:</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2)}>Números inteiros</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3)}>Números Racionais</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(4)}>Divisão Proporcional</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(5)}>Porcentagem</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(6)}>Juros simples</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(7)}>Juros compostos</li>

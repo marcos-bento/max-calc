@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import './conteudoMatematica.css';
-import Accordion from "../../components/accordion/accordion";
 
 interface InputProps {
     value?: number | undefined;
@@ -27,7 +26,6 @@ export default function RegraDe3Composta() {
 
     function validaResposta() {
         if (valorA && valorB && valorC && valorD && valorE) {
-            console.log("A: ",valorA, "B: ",valorB, "C: ",valorC, "D: ",valorD, "E: ",valorE)
             let calculo: string = "";
             if (tipoDeEntrada === "A") {
                 // Se for diretamente proporcional:
@@ -155,33 +153,6 @@ export default function RegraDe3Composta() {
                 <p>Está para</p>
                 <input type="number" onChange={(event) => handleValueChange(event, { setValue: setValorE })} placeholder="valor E" required />
             </div>
-            {/*  SVG duas setas horizontais */}
-            {/* <div className="conteudo__svgcontainer">
-                <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="10" y1="30" x2="90" y2="30" stroke="black" strokeWidth="2" />
-                    <line x1="10" y1="65" x2="90" y2="65" stroke="black" strokeWidth="2" />
-                    <polygon points="90,30 80,25 80,35" fill="black" />
-                    <polygon points="80,70 91,65 80,60" fill="black" />
-                </svg>
-            </div> */}
-            {/* SVG duas setas horizontais OU duas setas em X */}
-            {/* <div className="conteudo__svgcontainer">
-                {tipoDeEntrada === "A" ? (
-                    <svg style={{ transform: "rotate(45deg)" }} width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="20" y1="50" x2="90" y2="50" stroke="black" strokeWidth="2" />
-                        <line x1="50" y1="15" x2="50" y2="80" stroke="black" strokeWidth="2" />
-                        <polygon points="90,50 80,45 80,55" fill="black" />
-                        <polygon points="45,22 55,22 50,10" fill="black" />
-                    </svg>
-                ) : (
-                    <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="10" y1="30" x2="90" y2="30" stroke="black" strokeWidth="2" />
-                        <line x1="10" y1="65" x2="90" y2="65" stroke="black" strokeWidth="2" />
-                        <polygon points="90,30 80,25 80,35" fill="black" />
-                        <polygon points="80,70 91,65 80,60" fill="black" />
-                    </svg>
-                )}
-            </div> */}
             <div className="conteudo__calculadora">
                 <input type="number" onChange={(event) => handleValueChange(event, { setValue: setValorB })} placeholder="valor B" required />
                 <p>Está para</p>
