@@ -11,6 +11,7 @@ import NumerosRacionais from "../conteudoMatematica/numerosRacionais";
 import Fracoes from "../conteudoMatematica/fracoes";
 import DivisaoProporcional from "../conteudoMatematica/divisaoProporcional";
 import Porcentagem from "../conteudoMatematica/porcentagem";
+import Juros from "../conteudoMatematica/juros";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -45,10 +46,7 @@ export default function PaginaMatematica() {
       componente = <Porcentagem/>;
     break;
     case 6:
-      componente = <p>Juros simples</p>;
-    break;
-    case 7:
-      componente = <p>Juros compostos</p>;
+      componente = <Juros/>;
     break;
     case 8:
       componente = <p>Cálculo de Área</p>;
@@ -83,11 +81,10 @@ export default function PaginaMatematica() {
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3.1)}>Frações</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(4)}>Divisão Proporcional</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(5)}>Porcentagem</li>
+            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(6)}>Juros simples</li>
             <li className="conteudo__lateral__links_titulo">Conceitos:</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2)}>Números inteiros</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3)}>Números Racionais</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(6)}>Juros simples</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(7)}>Juros compostos</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(8)}>Cálculo de Área</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(9)}>Cálculo de Volume</li>
             <li className="conteudo__lateral__links_link" onClick={() => setConteudo(10)}>Raciocínio Sequencial</li>
