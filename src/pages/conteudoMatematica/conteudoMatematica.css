@@ -146,3 +146,8 @@
     font-size: 18px;
     color: red;
 }
+
+.conteudo__calculadora__selectInput{
+    height: 34px;
+    border: solid 1px var(--fiveth-color);
+}

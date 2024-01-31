@@ -50,15 +50,15 @@ export default function RegraDe3() {
 
     function handleValue1Change(event: React.ChangeEvent<HTMLInputElement>) {
         setValorA(Number(event.target.value));
-    }
+    };
 
     function handleValue2Change(event: React.ChangeEvent<HTMLInputElement>) {
         setValorB(Number(event.target.value));
-    }
+    };
 
     function handleValue3Change(event: React.ChangeEvent<HTMLInputElement>) {
         setValorC(Number(event.target.value));
-    }
+    };
 
     return (
         <>

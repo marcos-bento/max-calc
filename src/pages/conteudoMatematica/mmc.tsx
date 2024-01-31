@@ -142,7 +142,7 @@ export default function MMC() {
             inputValue = Number(event.target.value);
         }
         setValue(inputValue);
-    }
+    };
 
     return (
         <>

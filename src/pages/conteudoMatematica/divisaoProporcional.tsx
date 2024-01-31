@@ -228,5 +228,5 @@ export default function DivisaoProporcional() {
                 <p>A situação citada acima descreve bem as circunstâncias nas quais devemos utilizar a divisão proporcional. Ela é amplamente utilizada em situações correlacionadas com a Matemática Financeira, Administração, Economia, sociedade (divisão de lucros e prejuízos).</p>
             </div>
         </>
-    )
-}
+    );
+};
