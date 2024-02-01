@@ -13,6 +13,7 @@ import DivisaoProporcional from "../conteudoMatematica/divisaoProporcional";
 import Porcentagem from "../conteudoMatematica/porcentagem";
 import Juros from "../conteudoMatematica/juros";
 import CalculaArea from "../conteudoMatematica/calculoArea";
+import CalculaVolume from "../conteudoMatematica/calculoVolume";
 
 export default function PaginaMatematica() {
   const [conteudo, setConteudo] = useState(0);
@@ -53,7 +54,7 @@ export default function PaginaMatematica() {
       componente = <CalculaArea/>;
     break;
     case 9:
-      componente = <p>Cálculo de Volume</p>;
+      componente = <CalculaVolume/>;
     break;
     case 10:
       componente = <p>Raciocínio Sequencial</p>;
