@@ -9,9 +9,10 @@ interface InputProps {
 export default function Juros() {
     const [resolucao, setResolucao] = useState<React.ReactNode>();
     const [tipoDeEntrada, setTipoDeEntrada] = useState<string>("A");
-    const [percentual1, setPercentual1] = useState<number>();
-    const [valor1, setValor1] = useState<number>();
-    const [tempo1, setTempo1] = useState<number>();
+    const [taxaJuros, setTaxaJuros] = useState<number>();
+    const [capital, setCapital] = useState<number>();
+    const [tempo, setTempo] = useState<number>();
+    const [resposta, setResposta] = useState<number>();
 
     useEffect(() => {
         limparResolucao();
@@ -25,12 +26,16 @@ export default function Juros() {
         let calculo: React.ReactNode;
         switch (tipo) {
             case "A":
-                // Calculo simples X% de um determinado valor
-                if (percentual1 && valor1) {
-                    // setResposta1(Number(((valor1 / 100) * percentual1).toFixed(2).replace(".00", "")));
+                // Calculo juros simples
+                if (taxaJuros && capital && tempo) {
+                    let juros = Number((capital * (taxaJuros/100) * tempo).toFixed(2).replace(".00",""));
+                    setResposta(juros + capital);
                     calculo = (
                         <>
-     
+                            <p>Juros = Capital x Taxa de juros x Tempo</p>
+                            <p>Juros = R${capital} x {(taxaJuros/100).toFixed(2)}% x {tempo}(meses/anos)</p>
+                            <p>Juros = R${juros}</p>
+                            <p>Valor total com Juros = R${juros + capital}</p>
                         </>
                     );
                 } else {
@@ -38,8 +43,24 @@ export default function Juros() {
                 };
                 break;
             case "B":
-                // Calculo simples acréscimo ou desconto de X% de um determinado valor
-                
+                // Calculo juros compostos
+                if (taxaJuros && capital && tempo) {
+                    let juros = Number((taxaJuros/100).toFixed(2).replace(".00",""));
+                    let potencia = Math.pow(juros+1, tempo);
+                    let montante = Number((capital * potencia).toFixed(2).replace(".00",""));
+                    setResposta(montante);
+                    calculo = (
+                        <>
+                            <p>Montante = Capital x (1 + Taxa de juros) ^ Tempo</p>
+                            <p>Montante = R${capital} x {`(1 + ${juros})`} ^ {tempo}(meses/anos)</p>
+                            <p>Montante = R${capital} x {`(${juros+1})`} ^ {tempo}(meses/anos)</p>
+                            <p>Montante = R${capital} x {`(${potencia})`} ^ {tempo}(meses/anos)</p>
+                            <p>Montante = R${montante}</p>
+                        </>
+                    );
+                } else {
+                    alert("Preencha os campos corretamente!");
+                };
                 break;
             default:
                 break;
@@ -75,44 +96,46 @@ export default function Juros() {
             </div>
             <br></br>
             {tipoDeEntrada === "A" ? <>
-                {/* Opção A: Descobrir o valor de d um determinado % */ }
+                {/* Opção A: Descobrir juros simples */ }
                 < p className="conteudo__alertaCinza">Juros Simples</p >
-            <div className="conteudo__calculadora">
-                <input type="number" min={1} value={percentual1} onChange={(event) => handleValueChange(event, { setValue: setPercentual1 })} placeholder="x %" required />
-                <p>% juros sobre</p>
-                <input type="number" min={1} value={valor1} onChange={(event) => handleValueChange(event, { setValue: setValor1 })} placeholder="capital" required />
-                <p>no período:</p>
-                <input type="number" min={1} value={valor1} onChange={(event) => handleValueChange(event, { setValue: setValor1 })} placeholder="tempo" required />
-                <p>=</p>
-                <input type="number" min={1} value={tempo1} onChange={(event) => handleValueChange(event, { setValue: setTempo1 })} placeholder="resultado" disabled />
-            </div>
-            <Botao texto={"Calcular"} onClick={() => calculaResposta("A")} />
+                <div className="conteudo__calculadora">
+                    <input type="number" min={1} value={taxaJuros} onChange={(event) => handleValueChange(event, { setValue: setTaxaJuros })} placeholder="x %" required />
+                    <p>% juros sobre</p>
+                    <input type="number" min={1} value={capital} onChange={(event) => handleValueChange(event, { setValue: setCapital })} placeholder="capital" required />
+                    <p>no período:</p>
+                    <input type="number" min={1} value={tempo} onChange={(event) => handleValueChange(event, { setValue: setTempo })} placeholder="tempo" required />
+                    <p>=</p>
+                    <input type="number" min={1} value={resposta} onChange={(event) => handleValueChange(event, { setValue: setResposta })} placeholder="resultado" disabled />
+                </div>
+                <Botao texto={"Calcular"} onClick={() => calculaResposta("A")} />
             </>
             : 
             <>
-            {/* Opção B: Descobrir o valor final de um aumento ou desconto de % */ }
-            {/* < p className = "conteudo__alertaCinza" >Juros Compostos</p >
-            <div className="conteudo__calculadora">
-                <p>de</p>
-                <input type="number" min={1} value={percentual2} onChange={(event) => handleValueChange(event, { setValue: setPercentual2 })} placeholder="x %" required />
-                <p>% sobre</p>
-                <input type="number" min={1} value={valor2} onChange={(event) => handleValueChange(event, { setValue: setValor2 })} placeholder="valor" required />
-                <p>=</p>
-                <input type="number" min={1} value={resposta2} onChange={(event) => handleValueChange(event, { setValue: setResposta2 })} placeholder="resultado" disabled />
-            </div>
-            <Botao texto={"Calcular"} onClick={() => calculaResposta("B")} /> */}
+                {/* Opção B: Descobrir juros compostos */ }
+                < p className="conteudo__alertaCinza">Juros Compostos</p >
+                <div className="conteudo__calculadora">
+                    <input type="number" min={1} value={taxaJuros} onChange={(event) => handleValueChange(event, { setValue: setTaxaJuros })} placeholder="x %" required />
+                    <p>% juros sobre</p>
+                    <input type="number" min={1} value={capital} onChange={(event) => handleValueChange(event, { setValue: setCapital })} placeholder="capital" required />
+                    <p>no período:</p>
+                    <input type="number" min={1} value={tempo} onChange={(event) => handleValueChange(event, { setValue: setTempo })} placeholder="tempo" required />
+                    <p>=</p>
+                    <input type="number" min={1} value={resposta} onChange={(event) => handleValueChange(event, { setValue: setResposta })} placeholder="resultado" disabled />
+                </div>
+                <Botao texto={"Calcular"} onClick={() => calculaResposta("B")} />
             </>
             }
             <div className="conteudo__resolucao">{resolucao}</div>
             <hr></hr>
             <div className="conteudo__material">
                 <p className="conteudo__material__titulo">Sobre</p>
-                <p>Porcentagem, representada pelo símbolo %, é a divisão de um número qualquer por 100. A expressão 25%, por exemplo, significa que 25 partes de um todo foram divididas em 100 partes.</p>
-                <p>Há três formas de representar uma porcentagem: forma percentual, forma fracionária e forma decimal. O cálculo do valor representado por uma porcentagem geralmente é feito a partir de uma multiplicação de frações ou de números decimais, por isso o domínio das quatro operações é fundamental para a compreensão de como calcular corretamente uma porcentagem.</p>
-                <p>Forma Percentual: A representação na forma percentual ocorre quando o número é seguido do símbolo % (por cento). Exemplo: 5%,  0.1%,  150%.</p>
-                <p>Forma Fracionária: Para realização de cálculos, uma das formas possíveis de representação de uma porcentagem é a forma fracionária, que pode ser uma fração irredutível ou uma simples fração sobre o número 100. Ex:</p>
-                <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/06/1-fracao.jpg" alt="Exemplo de percentual sendo transformado em fração" />
-                <p>Forma Decimal: A forma decimal é uma possibilidade de representação também. Para encontrá-la, é necessária a realização da divisão. Ex: A forma decimal de 25% é obtida pela divisão de 25 : 100 = 0,25.</p>
+                <p>O juro simples é calculado tendo como base o valor inicial, conhecido como capital, a taxa de juro e o tempo. A fórmula do juro simples é J = C ∙ i ∙ t, em que J é o juro, C é o capital, i é a taxa de juro e t é o tempo.</p>
+                <p>Para calcular o juro simples, basta substituir os valores na fórmula e realizar o cálculo. Além do juro simples, existe também o juro composto, que possui um acréscimo maior ao decorrer do tempo.</p>
+            
+
+                <p>Os Juros Compostos são calculados levando em conta a atualização do capital, ou seja, o juro incide não apenas no valor inicial, mas também sobre os juros acumulados (juros sobre juros).</p>
+                <p>Esse tipo de juros, chamado também de “capitalização acumulada”, é muito utilizado nas transações comerciais e financeiras (sejam dívidas, empréstimos ou investimentos).</p>
+                <p>Para calcular os juros compostos, utiliza-se a expressão: M = C (1+i)^t</p>
             </div>
         </> 
     )
