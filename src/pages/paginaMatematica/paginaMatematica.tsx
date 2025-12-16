@@ -1,6 +1,6 @@
 import Navbar from "../../components/navbar/navbar";
 import "../../styles/style.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './paginaMatematica.css';
 import RegraDe3 from "../conteudoMatematica/regraDe3";
 import RegraDe3Composta from "../conteudoMatematica/regraDe3Composta";
@@ -16,47 +16,101 @@ import CalculaArea from "../conteudoMatematica/calculoArea";
 import CalculaVolume from "../conteudoMatematica/calculoVolume";
 
 export default function PaginaMatematica() {
-  const [conteudo, setConteudo] = useState(0);
+  type ConteudoSlug =
+    | "home"
+    | "regra-de-3-simples"
+    | "regra-de-3-composta"
+    | "mmc"
+    | "mdc"
+    | "numeros-inteiros"
+    | "numeros-racionais"
+    | "fracoes"
+    | "divisao-proporcional"
+    | "porcentagem"
+    | "juros"
+    | "calculo-area"
+    | "calculo-volume"
+    | "raciocinio-sequencial";
+
+  const slugsValidos: ConteudoSlug[] = [
+    "home",
+    "regra-de-3-simples",
+    "regra-de-3-composta",
+    "mmc",
+    "mdc",
+    "numeros-inteiros",
+    "numeros-racionais",
+    "fracoes",
+    "divisao-proporcional",
+    "porcentagem",
+    "juros",
+    "calculo-area",
+    "calculo-volume",
+    "raciocinio-sequencial",
+  ];
+
+  const lerConteudoDoHash = (): ConteudoSlug => {
+    const hashValor = window.location.hash.replace("#", "").trim();
+    return slugsValidos.includes(hashValor as ConteudoSlug)
+      ? (hashValor as ConteudoSlug)
+      : "home";
+  };
+
+  const [conteudo, setConteudo] = useState<ConteudoSlug>(lerConteudoDoHash);
+
+  const atualizarConteudo = (novoConteudo: ConteudoSlug) => {
+    setConteudo(novoConteudo);
+    const novoHash = novoConteudo === "home" ? "" : `#${novoConteudo}`;
+    const novaUrl = `${window.location.pathname}${novoHash}`;
+    window.history.replaceState(null, "", novaUrl);
+  };
+
+  useEffect(() => {
+    const aoNavegar = () => setConteudo(lerConteudoDoHash());
+    window.addEventListener("popstate", aoNavegar);
+    return () => window.removeEventListener("popstate", aoNavegar);
+  }, []);
+
   let componente: React.JSX.Element = <></>;
 
   switch(conteudo){
-    case 1:
+    case "regra-de-3-simples":
       componente = <RegraDe3/>;
     break;
-    case 1.1:
+    case "regra-de-3-composta":
       componente = <RegraDe3Composta/>;
     break;
-    case 2:
+    case "numeros-inteiros":
       componente = <NumerosInteiros/>;
     break;
-    case 2.1:
+    case "mmc":
       componente = <MMC/>;
     break;
-    case 2.2:
+    case "mdc":
       componente = <MDC/>;
     break;
-    case 3:
+    case "numeros-racionais":
       componente = <NumerosRacionais/>;
     break;
-    case 3.1:
+    case "fracoes":
       componente = <Fracoes/>;
     break;
-    case 4:
+    case "divisao-proporcional":
       componente = <DivisaoProporcional/>;
     break;
-    case 5:
+    case "porcentagem":
       componente = <Porcentagem/>;
     break;
-    case 6:
+    case "juros":
       componente = <Juros/>;
     break;
-    case 8:
+    case "calculo-area":
       componente = <CalculaArea/>;
     break;
-    case 9:
+    case "calculo-volume":
       componente = <CalculaVolume/>;
     break;
-    case 10:
+    case "raciocinio-sequencial":
       componente = <p>Raciocínio Sequencial</p>;
     break;
     default:
@@ -76,20 +130,20 @@ export default function PaginaMatematica() {
         <aside className="conteudo__lateral">
           <ul className="conteudo__lateral__links">
             <li className="conteudo__lateral__links_titulo">calculadoras:</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1)}>Regra de 3 Simples</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(1.1)}>Regra de 3 Composta</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.1)}>MMC: Múltiplo comum</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2.2)}>MDC: Divisor comum</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3.1)}>Frações</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(4)}>Divisão Proporcional</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(5)}>Porcentagem</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(6)}>Juros</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(8)}>Cálculo de Área</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(9)}>Cálculo de Volume</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("regra-de-3-simples")}>Regra de 3 Simples</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("regra-de-3-composta")}>Regra de 3 Composta</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("mmc")}>MMC: Múltiplo comum</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("mdc")}>MDC: Divisor comum</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("fracoes")}>Frações</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("divisao-proporcional")}>Divisão Proporcional</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("porcentagem")}>Porcentagem</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("juros")}>Juros</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("calculo-area")}>Cálculo de Área</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("calculo-volume")}>Cálculo de Volume</li>
             <li className="conteudo__lateral__links_titulo">Conceitos:</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(2)}>Números inteiros</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(3)}>Números Racionais</li>
-            <li className="conteudo__lateral__links_link" onClick={() => setConteudo(10)}>Raciocínio Sequencial</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("numeros-inteiros")}>Números inteiros</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("numeros-racionais")}>Números Racionais</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("raciocinio-sequencial")}>Raciocínio Sequencial</li>
           </ul>
         </aside>
         <article className="conteudo__artigo">
