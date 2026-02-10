@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import './conteudoMatematica.css';
 import Accordion from "../../components/accordion/accordion";
 
@@ -10,15 +10,7 @@ export default function RegraDe3() {
     const [resolucao, setResolucao] = useState<React.ReactNode>(null);
     const [tipoDeEntrada, setTipoDeEntrada] = useState<string>("A");
 
-    useEffect(() => {
-        validaResposta();
-    }, [valorA, valorB, valorC]);
-
-    useEffect(() => {
-        validaResposta();
-    }, [tipoDeEntrada]);
-
-    function validaResposta() {
+    const validaResposta = useCallback(() => {
         if (valorA && valorB && valorC) {
             let calculo: string = "";
             if (tipoDeEntrada === "A") {
@@ -46,7 +38,11 @@ export default function RegraDe3() {
             }
             setResposta(calculo);
         }
-    }
+    }, [tipoDeEntrada, valorA, valorB, valorC]);
+
+    useEffect(() => {
+        validaResposta();
+    }, [validaResposta]);
 
     function handleValue1Change(event: React.ChangeEvent<HTMLInputElement>) {
         setValorA(Number(event.target.value));

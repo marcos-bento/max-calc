@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import './conteudoMatematica.css';
 import Botao from "../../components/botao/botao";
-import MMC from "./mmc";
 
 interface InputProps {
     value?: number | undefined;

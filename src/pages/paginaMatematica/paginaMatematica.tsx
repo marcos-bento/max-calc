@@ -1,6 +1,6 @@
 import Navbar from "../../components/navbar/navbar";
 import "../../styles/style.css";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import './paginaMatematica.css';
 import RegraDe3 from "../conteudoMatematica/regraDe3";
 import RegraDe3Composta from "../conteudoMatematica/regraDe3Composta";
@@ -16,48 +16,48 @@ import CalculaArea from "../conteudoMatematica/calculoArea";
 import CalculaVolume from "../conteudoMatematica/calculoVolume";
 import ConversaoNumeros from "../conteudoMatematica/conversaoNumeros";
 
+type ConteudoSlug =
+  | "home"
+  | "regra-de-3-simples"
+  | "regra-de-3-composta"
+  | "mmc"
+  | "mdc"
+  | "numeros-inteiros"
+  | "numeros-racionais"
+  | "fracoes"
+  | "divisao-proporcional"
+  | "porcentagem"
+  | "juros"
+  | "calculo-area"
+  | "calculo-volume"
+  | "conversao-numeros"
+  | "raciocinio-sequencial";
+
+const slugsValidos: ConteudoSlug[] = [
+  "home",
+  "regra-de-3-simples",
+  "regra-de-3-composta",
+  "mmc",
+  "mdc",
+  "numeros-inteiros",
+  "numeros-racionais",
+  "fracoes",
+  "divisao-proporcional",
+  "porcentagem",
+  "juros",
+  "calculo-area",
+  "calculo-volume",
+  "conversao-numeros",
+  "raciocinio-sequencial",
+];
+
 export default function PaginaMatematica() {
-  type ConteudoSlug =
-    | "home"
-    | "regra-de-3-simples"
-    | "regra-de-3-composta"
-    | "mmc"
-    | "mdc"
-    | "numeros-inteiros"
-    | "numeros-racionais"
-    | "fracoes"
-    | "divisao-proporcional"
-    | "porcentagem"
-    | "juros"
-    | "calculo-area"
-    | "calculo-volume"
-    | "conversao-numeros"
-    | "raciocinio-sequencial";
-
-  const slugsValidos: ConteudoSlug[] = [
-    "home",
-    "regra-de-3-simples",
-    "regra-de-3-composta",
-    "mmc",
-    "mdc",
-    "numeros-inteiros",
-    "numeros-racionais",
-    "fracoes",
-    "divisao-proporcional",
-    "porcentagem",
-    "juros",
-    "calculo-area",
-    "calculo-volume",
-    "conversao-numeros",
-    "raciocinio-sequencial",
-  ];
-
-  const lerConteudoDoHash = (): ConteudoSlug => {
+  const lerConteudoDoHash = useCallback((): ConteudoSlug => {
     const hashValor = window.location.hash.replace("#", "").trim();
     return slugsValidos.includes(hashValor as ConteudoSlug)
       ? (hashValor as ConteudoSlug)
       : "home";
-  };
+  }, []);
 
   const [conteudo, setConteudo] = useState<ConteudoSlug>(lerConteudoDoHash);
 
@@ -72,7 +72,7 @@ export default function PaginaMatematica() {
     const aoNavegar = () => setConteudo(lerConteudoDoHash());
     window.addEventListener("popstate", aoNavegar);
     return () => window.removeEventListener("popstate", aoNavegar);
-  }, []);
+  }, [lerConteudoDoHash]);
 
   let componente: React.JSX.Element = <></>;
 
