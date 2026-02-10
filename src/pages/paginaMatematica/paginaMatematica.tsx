@@ -14,6 +14,7 @@ import Porcentagem from "../conteudoMatematica/porcentagem";
 import Juros from "../conteudoMatematica/juros";
 import CalculaArea from "../conteudoMatematica/calculoArea";
 import CalculaVolume from "../conteudoMatematica/calculoVolume";
+import ConversaoNumeros from "../conteudoMatematica/conversaoNumeros";
 
 export default function PaginaMatematica() {
   type ConteudoSlug =
@@ -30,6 +31,7 @@ export default function PaginaMatematica() {
     | "juros"
     | "calculo-area"
     | "calculo-volume"
+    | "conversao-numeros"
     | "raciocinio-sequencial";
 
   const slugsValidos: ConteudoSlug[] = [
@@ -46,6 +48,7 @@ export default function PaginaMatematica() {
     "juros",
     "calculo-area",
     "calculo-volume",
+    "conversao-numeros",
     "raciocinio-sequencial",
   ];
 
@@ -110,6 +113,9 @@ export default function PaginaMatematica() {
     case "calculo-volume":
       componente = <CalculaVolume/>;
     break;
+    case "conversao-numeros":
+      componente = <ConversaoNumeros/>;
+    break;
     case "raciocinio-sequencial":
       componente = <p>Raciocínio Sequencial</p>;
     break;
@@ -140,6 +146,7 @@ export default function PaginaMatematica() {
             <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("juros")}>Juros</li>
             <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("calculo-area")}>Cálculo de Área</li>
             <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("calculo-volume")}>Cálculo de Volume</li>
+            <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("conversao-numeros")}>Conversão de Números</li>
             <li className="conteudo__lateral__links_titulo">Conceitos:</li>
             <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("numeros-inteiros")}>Números inteiros</li>
             <li className="conteudo__lateral__links_link" onClick={() => atualizarConteudo("numeros-racionais")}>Números Racionais</li>

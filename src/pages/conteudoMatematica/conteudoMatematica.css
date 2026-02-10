@@ -151,3 +151,37 @@
     height: 34px;
     border: solid 1px var(--fiveth-color);
 }
+
+.conteudo__conversaoBases{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.conteudo__conversaoBases__coluna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.conteudo__conversaoBases__coluna input{
+    width: 220px;
+    height: 34px;
+    text-align: center;
+    border: solid 1px var(--fiveth-color);
+}
+
+.conteudo__conversaoBases__seta{
+    font-size: 26px;
+    color: #757575;
+}
+
+@media (max-width: 768px) {
+    .conteudo__conversaoBases{
+        flex-direction: column;
+    }
+}
