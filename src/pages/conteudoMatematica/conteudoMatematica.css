@@ -53,6 +53,87 @@
     padding: 2rem;
 }
 
+.conteudo__resolucao__linhaFormula{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.4rem 0;
+}
+
+.conteudo__resolucao__fracao{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding: 0 2ch;
+}
+
+.conteudo__resolucao__fracao-numerador{
+    padding: 0 0.6rem;
+}
+
+.conteudo__resolucao__fracao-traco{
+    width: 100%;
+    margin: 0.2rem 0;
+    border: 0;
+    border-top: 2px solid #222;
+}
+
+.conteudo__resolucao__fracao-denominador{
+    padding: 0 0.6rem;
+}
+
+.conteudo__resolucao__radical{
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.conteudo__resolucao__radical-simbolo{
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-right: 0.1rem;
+}
+
+.conteudo__resolucao__radical-conteudo{
+    border-top: 2px solid #222;
+    padding: 0.05rem 0.35rem 0 0.35rem;
+    line-height: 1.1;
+}
+
+.conteudo__resolucao__blocosRaiz{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 220px));
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+.conteudo__resolucao__blocoRaiz{
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 0.8rem 0.6rem;
+}
+
+.conteudo__resolucao__blocoLinha{
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.5rem 0;
+}
+
+.conteudo__resolucao__blocoLinha-esquerda{
+    font-weight: bold;
+    text-align: right;
+}
+
+.conteudo__resolucao__blocoLinha-direita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .conteudo__explicacao{
     text-align: center;
     margin: 0 10%;
@@ -183,5 +264,9 @@
 @media (max-width: 768px) {
     .conteudo__conversaoBases{
         flex-direction: column;
+    }
+
+    .conteudo__resolucao__blocosRaiz{
+        grid-template-columns: 1fr;
     }
 }
